@@ -9,7 +9,7 @@ const AuthScreen = () => {
     lastName: "",
     firstName: "",
     email: "",
-    password: "",
+    password: "", 
   });
   const [verify, setVerify] = useState({
     email: false,
