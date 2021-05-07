@@ -3,10 +3,11 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import LoadingBar from "container/layout/loadingbar";
 import { useSelector } from "react-redux";
 import AuthScreen from "container/screens/Auth";
+import ChatScreen from "container/screens/Chats";
 
 export const PRIVATE_ROUTER = [];
 export const PUBLIC_ROUTER = [
-  { exact: true, path: "/welcome", component: AuthScreen },
+  { exact: true, path: "/chatroom", component: ChatScreen },
 ];
 function FadingRoute({ component: Component, myprops = null, ...rest }) {
   return (
