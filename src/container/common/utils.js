@@ -36,3 +36,5 @@ export const resizeImage = (base64Str, maxWidth = 1024, maxHeight = 1024) => {
     };
   });
 };
+export const randomArray = (length, max) =>
+  [...new Array(length)].map(() => Math.round(Math.random() * max));

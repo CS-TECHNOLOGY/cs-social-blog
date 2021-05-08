@@ -1,29 +1,66 @@
 .cs-chatroom {
-  // background-color: aqua;
-  .cs-chat-home-i {
-    display: flex;
-    justify-content: center;
-    // color: ;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  height: 100vh;
+  overflow: hidden;
+  .cs-chat-left {
+    flex: 3;
+    background-color: #303841;
+    color: #a6b0cf;
+    padding: 1em;
+    .cs-list-user {
+      margin-top: 2em;
+      overflow-y: hidden;
+      height: 85%;
+      .cs-one-user{
+        display: flex;
+        flex-direction: row;
+        // background-color: #36414A;
+        padding: 0.5em;
+        align-items: center;
+        margin-bottom: 1em;
+        margin-right: 1em;
+        border-radius: 8px;
+        .cs-avt{
+          margin-right: 1em;
+        }
+        p{
+          margin: 0;
+          margin-top: 0.6em;
+          font-size: 14px;
+        }
+        h5{
+          margin: 0;
+          font-size: 15px;
+        }
+      }
+      .cs-one-user:hover{
+        background-color: #36414A;
+      }
+    }
+    .cs-list-user:hover{
+      overflow-y: scroll;
+    }
   }
-  .cs-side {
-    display: flex !important;
-    align-items: center;
-    text-align: center;
-    width: 5em;
-    color: gray;
+  .cs-chat-right {
+    flex: 9;
+    background-color: #262e35;
+    padding: 1em;
   }
-  main {
-    margin-left: 5.1em;
-    height: 100%;
-    background-color: aquamarine;
-    .tab-contain {
-      width: 24vw;
-    }
-    .MuiGrid-grid-md-4 {
-      max-width: 100% !important;
-    }
-    .cs-chat-box{
-      
-    }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: grey;
   }
 }
