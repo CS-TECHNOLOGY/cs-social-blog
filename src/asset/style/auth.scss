@@ -1,8 +1,5 @@
-* {
+.cs-auth {
   box-sizing: border-box;
-}
-
-body {
   background: #f6f5f7;
   display: flex;
   justify-content: center;
@@ -11,8 +8,6 @@ body {
   font-family: "Montserrat", sans-serif;
   height: 100vh;
   margin: -20px 0 50px;
-}
-.cs-auth {
   h1 {
     font-weight: bold;
     margin: 0;
@@ -92,9 +87,9 @@ body {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
-    width: 768px;
+    width: 60vw;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 65vh;
   }
 
   .form-container {
