@@ -1,1 +1,71 @@
-@import './auth.scss'
+@import "./auth.scss";
+@import "./chat.scss";
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #9aa1b9;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #9aa1b9;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #9aa1b9;
+}
+.cs-search-bar {
+  padding: 0.8em;
+  background-color: #36414a;
+  color: #9aa1b9;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  border-radius: 8px;
+  input {
+    background-color: #36414a;
+    color: #9aa1b9;
+    border: hidden;
+    outline: none;
+    margin-left: 0.5em;
+  }
+  input:focus {
+    outline: none;
+  }
+}
+
+.cs-avt {
+  width: 50px;
+  height: 50px;
+  background-color: #454a74;
+  color: #6f65c1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+.cs-avt-status {
+  position: absolute;
+  background-color: #06d6a0;
+  right: 2px;
+  bottom: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}

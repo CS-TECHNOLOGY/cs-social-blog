@@ -3,10 +3,12 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import LoadingBar from "container/layout/loadingbar";
 import { useSelector } from "react-redux";
 import AuthScreen from "container/screens/Auth";
+import ChatZone from "container/screens/Chat";
+// import ChatScreen from "container/screens/Chats";
 
 export const PRIVATE_ROUTER = [];
 export const PUBLIC_ROUTER = [
-  { exact: true, path: "/welcome", component: AuthScreen },
+  { exact: true, path: "/chatroom", component: ChatZone },
 ];
 function FadingRoute({ component: Component, myprops = null, ...rest }) {
   return (
@@ -36,7 +38,7 @@ const RouterCenter = () => {
       <div className="cs-main-body">
         <Switch>
           {!isAuth ? (
-            <Redirect exact from="/" to="/auth" />
+            <Redirect exact from="/" to="/chatroom" />
           ) : (
             <Redirect exact from="/" to="/welcome" />
           )}
