@@ -13,7 +13,7 @@
       margin-top: 2em;
       overflow-y: hidden;
       height: 85%;
-      .cs-one-user{
+      .cs-one-user {
         display: flex;
         flex-direction: row;
         // background-color: #36414A;
@@ -22,31 +22,70 @@
         margin-bottom: 1em;
         margin-right: 1em;
         border-radius: 8px;
-        .cs-avt{
+        .cs-avt {
           margin-right: 1em;
         }
-        p{
+        p {
           margin: 0;
           margin-top: 0.6em;
           font-size: 14px;
         }
-        h5{
+        h5 {
           margin: 0;
           font-size: 15px;
         }
       }
-      .cs-one-user:hover{
-        background-color: #36414A;
+      .cs-one-user:hover {
+        background-color: #36414a;
       }
     }
-    .cs-list-user:hover{
+    .cs-list-user:hover {
       overflow-y: scroll;
     }
   }
   .cs-chat-right {
     flex: 9;
     background-color: #262e35;
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    color: #a6b0cf;
+    justify-content: space-between;
+    .cs-chat-box-head {
+      // flex: 1;
+      border-bottom: 1px solid #36404a;
+      display: flex;
+      flex-direction: row;
+      padding: 0.8em;
+      justify-content: space-between;
+      div:first-child {
+        display: flex;
+        align-items: center;
+        h5 {
+          margin: 0 1em;
+          font-size: 15px;
+        }
+        .cs-avt-status {
+          position: relative;
+        }
+      }
+      .cs-chat-icons-tool {
+        display: flex;
+        align-items: center;
+        i {
+          margin: 0 1em;
+          cursor: pointer;
+        }
+        i:hover {
+          color: white;
+        }
+      }
+    }
+    .cs-chat-box-contain {
+    }
+    .cs-chat-box-type {
+      // flex: 1;
+      border-top: 1px solid #36404a;
+    }
   }
   /* width */
   ::-webkit-scrollbar {
