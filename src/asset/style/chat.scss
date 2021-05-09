@@ -83,8 +83,44 @@
     .cs-chat-box-contain {
     }
     .cs-chat-box-type {
+      align-items: flex-end;
       // flex: 1;
       border-top: 1px solid #36404a;
+      height: 50px;
+      div:first-child{
+        padding: 1em;
+        background-color: #36404a;
+        border-radius: 8px;
+      }
+      textarea{
+        outline: none;
+        background-color: initial;
+        border: hidden;
+        color: #a6b0cf;
+        resize: none;
+        width: 50vw;
+      }
+      .cs-chat-icons-tool{
+        margin: 0;
+        button{
+          background-color: initial;
+          cursor: pointer;
+          color: white;
+          font-size: 110%;
+          text-align: center;
+          padding: 0.8em;
+          border-radius: 8px;
+          outline: none;
+          border: hidden;
+        
+          i{
+            margin: 0;
+          }
+        }
+        button:hover{
+          background-color: #36414a;
+        }
+      }
     }
   }
   /* width */
@@ -101,5 +137,10 @@
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: grey;
+  }
+  .cs-emoji-list{
+    position: absolute;
+    right: 8px;
+    bottom: 5.2em;
   }
 }
