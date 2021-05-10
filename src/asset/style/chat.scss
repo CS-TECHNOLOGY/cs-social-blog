@@ -16,7 +16,7 @@
       .cs-one-user {
         display: flex;
         flex-direction: row;
-        // background-color: #36414A;
+        cursor: pointer;
         padding: 0.5em;
         align-items: center;
         margin-bottom: 1em;
@@ -81,18 +81,65 @@
       }
     }
     .cs-chat-box-contain {
+      // height: 80vh;
+      flex: 10;
+      overflow: hidden;
+      padding: 1em;
+      display: flex;
+      flex-direction: column-reverse;
+      .cs-message {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        .cs-avt {
+          margin: 0 1em;
+        }
+        div:nth-child(2) {
+          p {
+            background-color: #36414a;
+            color: #eff2f7;
+            padding: 0.5em;
+            border-radius: 8px;
+            margin: 0;
+            margin-top: 4px;
+          }
+          max-width: 30vw;
+        }
+      }
+      .cs-m-end {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+
+        text-align: right;
+        p {
+          text-align: left;
+        }
+      }
+      .cs-hidden-avt {
+        // display: none;
+        background-color: initial;
+        span {
+          display: none;
+        }
+        img {
+          display: none;
+        }
+      }
+    }
+    .cs-chat-box-contain:hover {
+      overflow: scroll;
     }
     .cs-chat-box-type {
       align-items: flex-end;
       // flex: 1;
       border-top: 1px solid #36404a;
       height: 50px;
-      div:first-child{
+      div:first-child {
         padding: 1em;
         background-color: #36404a;
         border-radius: 8px;
       }
-      textarea{
+      textarea {
         outline: none;
         background-color: initial;
         border: hidden;
@@ -100,9 +147,9 @@
         resize: none;
         width: 50vw;
       }
-      .cs-chat-icons-tool{
+      .cs-chat-icons-tool {
         margin: 0;
-        button{
+        button {
           background-color: initial;
           cursor: pointer;
           color: white;
@@ -112,12 +159,12 @@
           border-radius: 8px;
           outline: none;
           border: hidden;
-        
-          i{
+
+          i {
             margin: 0;
           }
         }
-        button:hover{
+        button:hover {
           background-color: #36414a;
         }
       }
@@ -125,7 +172,7 @@
   }
   /* width */
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
   }
 
   /* Handle */
@@ -138,7 +185,7 @@
   ::-webkit-scrollbar-thumb:hover {
     background: grey;
   }
-  .cs-emoji-list{
+  .cs-emoji-list {
     position: absolute;
     right: 8px;
     bottom: 5.2em;

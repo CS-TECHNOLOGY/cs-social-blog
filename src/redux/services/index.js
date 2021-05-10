@@ -4,7 +4,7 @@ import { loadingAction, setSDataAction, setTokenAction } from "redux/actions";
 export const loginService = ({ email, password, callback }) => {
   return async (dispatch) => {
     dispatch(loadingAction(true));
-    await postService("/api/auth", { email, password })
+    await postService("/auth", { email, password })
       .then((result) => {
         callback(true);
         dispatch(setTokenAction(result.token));

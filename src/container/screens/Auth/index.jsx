@@ -9,7 +9,7 @@ const AuthScreen = () => {
     lastName: "",
     firstName: "",
     email: "",
-    password: "", 
+    password: "",
   });
   const [verify, setVerify] = useState({
     email: false,
@@ -36,7 +36,7 @@ const AuthScreen = () => {
           if (from) {
             history.push(`/forum/${from}`);
           } else {
-            history.push("/welcome");
+            history.push("/chatroom");
           }
         } else {
           setErrMess(success);
@@ -104,10 +104,22 @@ const AuthScreen = () => {
               </a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input
+              type="email"
+              placeholder="Email"
+              value={userInfo.email}
+              onChange={handleChange}
+              name="email"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={userInfo.password}
+              onChange={handleChange}
+            />
             <a href="/">Forgot your password?</a>
-            <button>Sign In</button>
+            <button onClick={submitAuth}>Sign In</button>
           </form>
         </div>
         <div className="overlay-container">

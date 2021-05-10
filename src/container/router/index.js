@@ -38,9 +38,9 @@ const RouterCenter = () => {
       <div className="cs-main-body">
         <Switch>
           {!isAuth ? (
-            <Redirect exact from="/" to="/chatroom" />
+            <Redirect exact from="/" to="/auth/sign-in" />
           ) : (
-            <Redirect exact from="/" to="/welcome" />
+            <Redirect exact from="/" to="/chatroom" />
           )}
           {publicRouter}
           {!isAuth && (
