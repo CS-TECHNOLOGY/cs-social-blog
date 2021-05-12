@@ -1,20 +1,39 @@
 import { TextareaAutosize } from "@material-ui/core";
+import { convertTime } from "container/common/utils";
+import { LoadingSpin } from "container/layout/Element";
 import { EmojiPickerMemo } from "container/layout/Element";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMessService, sendMessService } from "redux/services/chat";
 
-const Conversations = ({
-  conversation,
-  message,
-  handleType,
-  handleEmoji,
-  showEmoji,
-  pickEmoji,
-}) => {
+// import socketIOClient from "socket.io-client";
+const Conversations = ({ conversation }) => {
   const [listMess, setListMess] = useState([]);
+  const [showEmoji, setShowEmoji] = useState(false);
+  const [message, setMessage] = useState("");
+  const handleEmoji = () => {
+    setShowEmoji(() => !showEmoji);
+  };
+  const pickEmoji = async (e) => {
+    let sym = e.unified.split("-");
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x" + el));
+    let emoji = String.fromCodePoint(...codesArray);
+    setMessage(() => message + emoji);
+  };
+  useEffect(() => {
+    if (showEmoji) {
+      document
+        .querySelector(".cs-chatroom")
+        .addEventListener("click", (event) => {
+          const parent = document.querySelector(".emoji-mart");
+          if (showEmoji && !parent.contains(event.target)) {
+            setShowEmoji(false);
+          }
+        });
+    }
+  }, [showEmoji]);
   const dispatch = useDispatch();
-
   useEffect(() => {
     setListMess([]);
     dispatch(
@@ -39,15 +58,32 @@ const Conversations = ({
         callback: (res, err) => {
           if (!err) {
             setListMess(res.messages);
-            handleType(null);
+            setMessage("");
           }
         },
       })
     );
   };
+  const handleType = (e) => {
+    setMessage(e.target.value);
+  };
+  const handleKeyEvent = (event) => {
+    if (event.key === "Enter") {
+      if (event.shiftKey) {
+        setMessage(message + "\n");
+      } else {
+        event.preventDefault();
+        sendMess();
+      }
+    }
+  };
+  const groupTime = () => {
+
+  }
   const isLoading = useSelector((state) => state.isLoading);
-  return isLoading ? null : (
+  return (
     <div className="cs-chat-right">
+      {/* {JSON.stringify(listMess)} */}
       <div className="cs-chat-box-head">
         {conversation === "general" ? (
           <div>
@@ -70,22 +106,26 @@ const Conversations = ({
         </div>
       </div>
       <div className="cs-chat-box-contain " id="chat-box-contain">
-        {listMess.map((i) => (
-          <div
-            className={`cs-message ${
-              i.to === conversation._id ? " cs-m-end" : ""
-            }`}
-          >
-            {/* <div className={`cs-avt ${i % 3 === 0 ? " cs-hidden-avt" : ""}`}> */}
-            <div className={`cs-avt`}>
-              <span>CS</span>
+        {/* <div className={`cs-avt ${i % 3 === 0 ? " cs-hidden-avt" : ""}`}> */}
+        {isLoading ? (
+          <LoadingSpin />
+        ) : (
+          listMess.map((i) => (
+            <div
+              className={`cs-message ${
+                i.to === conversation._id ? " cs-m-end" : ""
+              }`}
+            >
+              <div className={`cs-avt`}>
+                <span>CS</span>
+              </div>
+              <div>
+                <p style={{ whiteSpace: "pre-line" }}>{i.text}</p>
+                <i>{convertTime(i?.date)}</i>
+              </div>
             </div>
-            <div>
-              <p style={{whiteSpace: "pre-line"}}>{'adasd \n\n asdad'}</p>
-              <span>{i?.date}</span>
-            </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
       <div className="cs-chat-box-type cs-chat-box-head">
         <div>
@@ -94,17 +134,7 @@ const Conversations = ({
             placeholder="Enter message..."
             value={message}
             onChange={handleType}
-            onKeyPress={(event) => {
-              if (event.key === "Enter") {
-                if (event.shiftKey) {
-                    handleType('\n')
-                } else {
-                  event.preventDefault();
-
-                  sendMess();
-                }
-              }
-            }}
+            onKeyPress={handleKeyEvent}
             // onKeyDown={sendMess}
           />
         </div>

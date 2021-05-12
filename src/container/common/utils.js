@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const validateValue = (str, type) => {
   switch (type) {
     case "email":
@@ -38,3 +40,19 @@ export const resizeImage = (base64Str, maxWidth = 1024, maxHeight = 1024) => {
 };
 export const randomArray = (length, max) =>
   [...new Array(length)].map(() => Math.round(Math.random() * max));
+
+export const convertTime = (time) => {
+  let now = new Date().getTime();
+  let ctime = new Date(time).getTime();
+  var minutes = 1000 * 60;
+  let difTime = now - ctime;
+  debugger;
+  if (difTime <= minutes * 30) {
+    debugger;
+    return `${moment(time).fromNow()}`;
+  } else if (difTime > minutes * 30 && difTime < minutes * 60 * 24) {
+    return `${moment(time).format("LT")}`;
+  } else {
+    return `${moment(time).format("LL")}`;
+  }
+};

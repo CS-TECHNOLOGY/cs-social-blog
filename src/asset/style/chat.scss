@@ -50,6 +50,7 @@
     flex-direction: column;
     color: #a6b0cf;
     justify-content: space-between;
+    overflow: hidden;
     .cs-chat-box-head {
       // flex: 1;
       border-bottom: 1px solid #36404a;
@@ -87,10 +88,16 @@
       padding: 1em;
       display: flex;
       flex-direction: column-reverse;
+      margin-right: 6px;
+      // margin-right: 4px;
       .cs-message {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
+        // width: 60vw;
+        i {
+          font-size: 65%;
+        }
         .cs-avt {
           margin: 0 1em;
         }
@@ -109,7 +116,6 @@
       .cs-m-end {
         flex-direction: row-reverse;
         justify-content: flex-start;
-
         text-align: right;
         p {
           text-align: left;
@@ -127,7 +133,8 @@
       }
     }
     .cs-chat-box-contain:hover {
-      overflow: scroll;
+      overflow-y: scroll;
+      margin-right: 0;
     }
     .cs-chat-box-type {
       align-items: flex-end;

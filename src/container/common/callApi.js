@@ -3,7 +3,7 @@ import { store } from "redux/store";
 
 export const HOST_API = "http://localhost:5000/api";
 
-export const postService = async (url, body) => { debugger
+export const postService = async (url, body) => { 
   try {
     const headers = {
       Accept: "application/json",
@@ -55,7 +55,7 @@ export const getService = async (url, params = "") => {
     if (response.status >= 200 && response.status <= 210) {
       return response.data;
     }
-  } catch (error) {debugger
+  } catch (error) {
     if (error.response) {
       const res =  error.response.data.message;
       throw res;
