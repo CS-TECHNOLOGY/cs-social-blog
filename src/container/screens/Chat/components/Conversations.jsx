@@ -5,12 +5,20 @@ import { EmojiPickerMemo } from "container/layout/Element";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMessService, sendMessService } from "redux/services/chat";
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "http://127.0.0.1:5000";
 
-// import socketIOClient from "socket.io-client";
 const Conversations = ({ conversation }) => {
   const [listMess, setListMess] = useState([]);
   const [showEmoji, setShowEmoji] = useState(false);
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const socket = socketIOClient(ENDPOINT);
+    socket.on("connect", (res) => console.log("hello server", res));
+    socket.emit('message', "message");
+  }, []);
+
   const handleEmoji = () => {
     setShowEmoji(() => !showEmoji);
   };
@@ -77,9 +85,7 @@ const Conversations = ({ conversation }) => {
       }
     }
   };
-  const groupTime = () => {
-
-  }
+  const groupTime = () => {};
   const isLoading = useSelector((state) => state.isLoading);
   return (
     <div className="cs-chat-right">
