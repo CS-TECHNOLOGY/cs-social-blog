@@ -8,7 +8,7 @@ import ChatZone from "container/screens/Chat";
 
 export const PRIVATE_ROUTER = [];
 export const PUBLIC_ROUTER = [
-  { exact: true, path: "/chatroom", component: ChatZone },
+  { exact: true, path: "/", component: ChatZone },
 ];
 function FadingRoute({ component: Component, myprops = null, ...rest }) {
   return (
@@ -37,11 +37,11 @@ const RouterCenter = () => {
       <LoadingBar load={loading} />
       <div className="cs-main-body">
         <Switch>
-          {!isAuth ? (
+          {/* {!isAuth ? (
             <Redirect exact from="/" to="/auth/sign-in" />
           ) : (
             <Redirect exact from="/" to="/chatroom" />
-          )}
+          )} */}
           {publicRouter}
           {!isAuth && (
             <FadingRoute

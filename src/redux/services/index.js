@@ -10,7 +10,7 @@ export const loginService = ({ email, password, callback }) => {
         dispatch(setTokenAction(result.token));
       })
       .catch((err) => {
-        callback(err.toString());
+        callback(err?.toString() || '');
       })
       .finally(() => {
         dispatch(loadingAction(false));
@@ -32,7 +32,7 @@ export const signUpService = ({
         dispatch(setTokenAction(result));
       })
       .catch((err) => {
-        callback(err.toString());
+        callback(err.toString() || '');
       })
       .finally(() => {
         dispatch(loadingAction(false));
@@ -48,7 +48,7 @@ export const getPostInGroup = ({page, callback}) => {
         callback(result, false);
       })
       .catch((err) => {
-        callback("", err.toString());
+        callback('', err?.toString() || '');
       })
       .finally(() => {
         dispatch(loadingAction(false));
@@ -63,7 +63,7 @@ export const getPostById = ({id, callback}) => {
         callback(result, false);
       })
       .catch((err) => {
-        callback("", err.toString());
+        callback('', err?.toString() || '');
       })
       .finally(() => {
         dispatch(loadingAction(false));
@@ -79,7 +79,7 @@ export const postComment = ({id, text, callback}) => {
         callback(result, false);
       })
       .catch((err) => {
-        callback("", err.toString());
+        callback('', err?.toString() || '');
       })
       .finally(() => {
         dispatch(loadingAction(false));
@@ -95,7 +95,7 @@ export const scanImageService = ({image, callback}) => {
         callback(result, false);
       })
       .catch((err) => {
-        callback("", err.toString());
+        callback('', err?.toString() || '');
       })
       .finally(() => {
         dispatch(loadingAction(false));

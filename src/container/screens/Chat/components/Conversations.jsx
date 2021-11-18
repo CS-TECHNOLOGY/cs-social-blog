@@ -43,7 +43,6 @@ const Conversations = ({ conversation }) => {
   }, [showEmoji]);
   const dispatch = useDispatch();
   useEffect(() => {
-    setListMess([]);
     dispatch(
       getMessService({
         id: conversation._id,

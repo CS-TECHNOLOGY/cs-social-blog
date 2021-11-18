@@ -1,7 +1,7 @@
 import axios from "axios";
 import { store } from "redux/store";
 
-export const HOST_API = "http://localhost:5000/api";
+export const HOST_API = "http://localhost:5000";
 
 export const postService = async (url, body) => { 
   try {

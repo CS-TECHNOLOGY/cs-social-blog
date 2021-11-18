@@ -21,11 +21,11 @@ const UsersList = ({ users, handleUser }) => {
           users?.map((i) => (
             <div className="cs-one-user" onClick={() => handleUser(i)}>
               <div className="cs-avt">
-                <span>{i.lastname?.slice(0, 1)}</span>
+                <span>{i.name?.slice(0, 1)}</span>
                 <span className="cs-avt-status"></span>
               </div>
               <div>
-                <h5>{i.lastname + " " + i.firstname}</h5>
+                <h5>{i.name}</h5>
                 <p>Hello cs technology</p>
               </div>
             </div>
